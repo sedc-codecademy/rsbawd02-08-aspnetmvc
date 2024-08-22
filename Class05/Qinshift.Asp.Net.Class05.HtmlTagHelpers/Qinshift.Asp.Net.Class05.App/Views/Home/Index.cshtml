@@ -1,0 +1,81 @@
+﻿@model Qinshift.Asp.Net.Class05.App.Models.Student;
+
+
+<h1>HTML helpers</h1>
+
+<h3>TextBox: Generates an input element of type text.</h3>
+
+@Html.TextBox("Name", null, new { @class = "form-control", placeholder = "Enter your name" })
+
+<h3>TextArea: Generates a textarea element</h3>
+
+@Html.TextArea(nameof(Model.Description), null, new { @class = "form-control", rows = 3, placeholder = "Enter your description" })
+
+<h3>DropDownList: Generates a select element for a dropdown list.</h3>
+
+@Html.DropDownList(nameof(Model.Gender), new SelectList(new[] { "Male", "Female", "Other" }), "Select Gender", new { @class = "form-control" })
+
+<h3>CheckBox: Generates an input element of type checkbox.</h3>
+
+@Html.CheckBox("Subscribe", true, new { @class = "form-check-input" })
+
+<h3>RadioButton: Generates an input element of type radio.</h3>
+
+@Html.RadioButton("Role", "Admin", true, new { @class = "form-check-input" }) Admin
+@Html.RadioButton("Role", "User", false, new { @class = "form-check-input" }) User
+
+<h3>ActionLink: Generates an anchor element.</h3>
+
+@Html.ActionLink("Click here", "ActionName", "ControllerName", null, new { @class = "btn btn-primary" })
+
+<h3>HiddenField: Generates a hidden input element.</h3>
+
+@Html.Hidden("Id", 123)
+
+<h3>Password: Generates an input element of type password.</h3>
+
+@Html.Password(nameof(Model.Password), null, new { @class = "form-control", placeholder = "Enter your password" })
+
+<h3>Any many more</h3>
+
+
+<h1>Tag helpers</h1>
+
+<h3>TextBox: Generates an input element of type text.</h3>
+
+<input asp-for="Name" class="form-control" placeholder="Enter your name" />
+
+<h3>TextArea: Generates a textarea element</h3>
+
+<textarea asp-for="Description" class="form-control" rows="3" placeholder="Enter your description"></textarea>
+
+<h3>DropDownList: Generates a select element for a dropdown list.</h3>
+
+<select asp-for="Gender" asp-items='@new SelectList(new[] { "Male", "Female", "Other" })' class="form-control">
+    <option value="">Select Gender</option>
+</select>
+
+
+<h3>CheckBox: Generates an input element of type checkbox.</h3>
+
+<input asp-for="HasSubscription" class="form-check-input" />
+
+<h3>RadioButton: Generates an input element of type radio.</h3>
+
+<input type="radio" asp-for="Role" value="Admin" class="form-check-input" /> Admin
+<input type="radio" asp-for="Role" value="User" class="form-check-input" /> User
+
+
+<h3>ActionLink: Generates an anchor element.</h3>
+
+<a asp-action="ActionName" asp-controller="ControllerName" class="btn btn-primary">Click here</a>
+
+<h3>HiddenField: Generates a hidden input element.</h3>
+
+<input type="hidden" asp-for="Id" value="123" />
+
+<h3>Password: Generates an input element of type password.</h3>
+
+<input type="password" asp-for="Password" class="form-control" placeholder="Enter your password" />
+
+<h3>Any many more</h3>
