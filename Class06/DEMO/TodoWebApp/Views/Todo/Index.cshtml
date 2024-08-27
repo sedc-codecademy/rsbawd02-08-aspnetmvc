@@ -1,0 +1,37 @@
+﻿@using TodoWebApp.Services.Dtos
+
+@model IEnumerable<TodoDto>
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        <table class="table table-bordered table-striped mt-2">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Due Date</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach(var todo in Model) {
+                <tr>
+                    <td>@todo.Description</td>
+                    <td>@todo.DueDate.ToShortDateString()</td>
+                    <td>@todo.Category</td>
+                    <td>@todo.Status</td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+        
+
+
+
+    </div>
+</div>
