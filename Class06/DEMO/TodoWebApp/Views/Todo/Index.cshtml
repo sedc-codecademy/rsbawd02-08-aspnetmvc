@@ -1,7 +1,10 @@
-﻿@using TodoWebApp.Services.Dtos
+﻿@using TodoWebApp.Models.ViewModels
+@using TodoWebApp.Services.Dtos
 
 @model IEnumerable<TodoDto>
 
+
+@Html.Partial("Partial/_FilterPartial.cshtml", (FilterVM)ViewBag.Filter)
 
 <div class="row">
     <div class="col-md-12">
@@ -13,23 +16,39 @@
                     <th>Due Date</th>
                     <th>Category</th>
                     <th>Status</th>
+                    <th class="w-25"></th>
                 </tr>
             </thead>
 
             <tbody>
+                <form asp-controller="Todo" asp-action="MarkCompleted" method="post">
+                    @foreach (var todo in Model)
+                    {
+                    <tr @(todo.Status == "Closed" ? "class=table-success" : "")>
 
-                @foreach(var todo in Model) {
-                <tr>
-                    <td>@todo.Description</td>
-                    <td>@todo.DueDate.ToShortDateString()</td>
-                    <td>@todo.Category</td>
-                    <td>@todo.Status</td>
-                </tr>
-                }
-
+                        <td>@todo.Description</td>
+                        <td>@todo.DueDate.ToShortDateString()</td>
+                        <td>@todo.Category</td>
+                        <td>@todo.Status</td>
+                        <td>
+                                @if (todo.Status == "Open")
+                                {
+                                <button type="submit" name="@nameof(TodoDto.Id)" value="@todo.Id" class="btn btn-outline-primary btn-sm">Mark complete</button>
+                                }
+                        </td>
+                    </tr>
+                    }
+                </form>
             </tbody>
         </table>
+  
+        <form asp-controller="Todo" asp-action="RemoveCompleted" method="post">
+            <a asp-action="AddTodo" class="btn btn-outline-primary">Add new todo</a>
+            <button type="submit" class="btn btn-outline-danger">Remove completed</button>
+        </form>
+          
         
+
 
 
 

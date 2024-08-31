@@ -1,0 +1,23 @@
+﻿@using TodoWebApp.Services.Dtos
+@model CreateTodoDto
+
+<h2> New Todo</h2>
+
+<form asp-controller="Todo" asp-action="AddTodo">
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label">Description</label>
+        <input asp-for="Description"  class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="CategoryId" class="form-label">Category</label>
+        <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name"))" class="form-select"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="DueDate" class="form-label">Due date</label>
+        <input type="datetime" asp-for="DueDate" class="form-control" />
+    </div>
+  
+
+    <button type="submit" class="btn btn-outline-primary">Create</button>
+
+</form>

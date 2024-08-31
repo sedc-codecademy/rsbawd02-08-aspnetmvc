@@ -1,0 +1,27 @@
+﻿@using TodoWebApp.Models.ViewModels
+@model FilterVM
+
+<form asp-controller="Todo" asp-action="Index" method="get">
+    <div class="row">
+
+        <div>
+            <label>Category</label>
+            <select name="categoryId" asp-items="@(new SelectList(Model.Categories, "Id", "Name", Model.SelectedCategoryId))">
+                <option value="0">All</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Status</label>
+            <select name="statusId" asp-items="@(new SelectList(Model.Statuses, "Id", "Name", Model.SelectedStatusId))">
+                <option value="0">All</option>
+            </select>
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-outline-primary">Filter</button>
+            <a asp-action="Index" class="btn btn-outline-info">Clear</a>
+        </div>
+
+    </div>
+</form>

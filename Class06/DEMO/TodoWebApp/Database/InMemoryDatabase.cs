@@ -54,7 +54,7 @@ namespace TodoWebApp.Database
             };
         }
 
-        private static void Save(Todo todo) {
+        public static void Save(Todo todo) {
 
             if (todo.Id == 0)
             {
