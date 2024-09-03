@@ -32,7 +32,7 @@ namespace Qinshift.Asp.Net.Class07.App.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetStudent(int id, StudentFilterVM filter)
+        public IActionResult GetStudent([FromRoute] int id, [FromQuery] StudentFilterVM filter)
         {
             // Show filter via debugging
             var student = new StudentDto()
@@ -53,10 +53,12 @@ namespace Qinshift.Asp.Net.Class07.App.Controllers
         [HttpPost("create")]
         public IActionResult Create([FromForm] CreateStudentVM model)
         {
-            
-            // Logic to save the student to the database
-            // For demonstration purposes, let's just return a success message
-            
+            if (ModelState.IsValid)
+            {
+                // Logic to save the student to the database
+                // For demonstration purposes, let's just return a success message
+                return Content("Student created successfully!");
+            }
             return View(model); // If model is not valid, return the view with validation errors
         }
     }
