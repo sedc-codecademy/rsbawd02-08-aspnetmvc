@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Qinshift.Asp.Net.Class07.App.Models.Dtos.StudentDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                    @Html.ActionLink("Details", "GetStudent", new { id = 1, firstName = "test", Age = 23 })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

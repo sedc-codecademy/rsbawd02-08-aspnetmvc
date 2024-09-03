@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qinshift.Asp.Net.Class07.App", "Qinshift.Asp.Net.Class07.App\Qinshift.Asp.Net.Class07.App.csproj", "{AEBF91D2-7693-490F-98B6-677B79B5CAE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEBF91D2-7693-490F-98B6-677B79B5CAE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEBF91D2-7693-490F-98B6-677B79B5CAE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEBF91D2-7693-490F-98B6-677B79B5CAE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEBF91D2-7693-490F-98B6-677B79B5CAE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB383462-57FD-45BA-9ECA-EA4054733218}
+	EndGlobalSection
+EndGlobal
