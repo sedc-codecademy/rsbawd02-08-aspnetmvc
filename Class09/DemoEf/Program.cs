@@ -1,3 +1,4 @@
+using DemoEf.Services;
 using Microsoft.EntityFrameworkCore;
 using TodoWebApp.Database;
 
@@ -6,8 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+var connectionString = builder.Configuration.GetConnectionString("Demo");
 
-builder.Services.AddDbContext<DemoDbContext>(options =>options.UseSqlServer("Server=.;Database=DemoDbStudents;Trusted_Connection=True;TrustServerCertificate=true"));
+builder.Services.AddDbContext<DemoDbContext>(options =>options.UseSqlServer(connectionString));
+builder.Services.AddTransient<StudentService>();
 
 var app = builder.Build();
 
